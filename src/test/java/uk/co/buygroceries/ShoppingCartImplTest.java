@@ -146,6 +146,17 @@ public class ShoppingCartImplTest {
         9.0D, totalAmount, 0.01);
   }
 
+  @Test
+  public void testWhen4Butter4BreadAnd6MilkThenTotalShouldBe10Pounds8Pence() {
+    shoppingCart.addItem(new Milk(ItemEnum.Milk.toString(), 6, milkCost));
+    shoppingCart.addItem(new Bread(ItemEnum.Bread.toString(), 4, breadCost));
+    shoppingCart.addItem(new Butter(ItemEnum.Butter.toString(), 4, butterCost));
+    double totalAmount = generateBill.generateBill(shoppingCart);
+    assertEquals(
+        "test When 4 Butter, 4 Bread and 6 Milk, then the total amount Should be 10 Pounds 8 Pence.",
+        10.8D, totalAmount, 0.01);
+  }
+
 
 
 }
