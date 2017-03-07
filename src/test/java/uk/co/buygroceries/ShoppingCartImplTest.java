@@ -10,6 +10,7 @@ import uk.co.buygroceries.impl.ShoppingCartImpl;
 import uk.co.buygroceries.interfaces.Cart;
 import uk.co.buygroceries.model.Bread;
 import uk.co.buygroceries.model.Butter;
+import uk.co.buygroceries.model.Item;
 import uk.co.buygroceries.model.Milk;
 
 public class ShoppingCartImplTest {
@@ -55,6 +56,21 @@ public class ShoppingCartImplTest {
     assertEquals(
         "test When 3 items added, then the cart should contain only those 3 items in total.",
         shoppingCart.listItems().size(), 3);
+  }
+
+  @Test
+  public void testCartShouldContainsOnlyThreeMilkItems() {
+    int milkItemsCount = 0;
+    shoppingCart.addItem(new Item(ItemEnum.Milk.toString(), 3, milkCost));
+    for (Item item : shoppingCart.listItems()) {
+      if ("Milk".equalsIgnoreCase(item.getName())) {
+        milkItemsCount = item.getQuantity();
+        break;
+      }
+    }
+    assertEquals(
+        "test When 3 Milk items added, then the cart should contain only those 3 Milk items.", 3,
+        milkItemsCount);
   }
 
 
