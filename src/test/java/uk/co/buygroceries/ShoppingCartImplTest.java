@@ -8,6 +8,7 @@ import org.junit.Test;
 import uk.co.buygroceries.base.ItemEnum;
 import uk.co.buygroceries.impl.ShoppingCartImpl;
 import uk.co.buygroceries.interfaces.Cart;
+import uk.co.buygroceries.model.Bread;
 import uk.co.buygroceries.model.Milk;
 
 public class ShoppingCartImplTest {
@@ -34,6 +35,16 @@ public class ShoppingCartImplTest {
     assertEquals(
         "test When 1 items added, then the cart should contain only those 1 items in total.",
         shoppingCart.listItems().size(), 1);
+  }
+  
+  @Test
+  public void testOnlyTwoItemsInCart() {
+      shoppingCart.addItem(new Milk(ItemEnum.Milk.toString(), 1, milkCost));
+      shoppingCart
+              .addItem(new Bread(ItemEnum.Bread.toString(), 1, breadCost));
+      assertEquals(
+              "test When 2 items added, then the cart should contain only those 2 items in total.",
+              shoppingCart.listItems().size(), 2);
   }
 
 
