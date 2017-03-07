@@ -157,6 +157,14 @@ public class ShoppingCartImplTest {
         10.8D, totalAmount, 0.01);
   }
 
+  @Test
+  public void testWhen10MilkThenTotalShouldBe8Pounds05Pence() {
+    shoppingCart.addItem(new Milk(ItemEnum.Milk.toString(), 10, milkCost));
+    double totalAmount = generateBill.generateBill(shoppingCart);
+    assertEquals("test When 10 Milk then the total amount Should be 8 Pounds 05 Pence.", 8.05D,
+        totalAmount, 0.01);
+  }
+
 
 
 }
