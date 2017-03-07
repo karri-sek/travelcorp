@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import uk.co.buygroceries.base.ItemEnum;
 import uk.co.buygroceries.impl.GenerateCartBillImpl;
+import uk.co.buygroceries.impl.HappySalesDiscountCalculatorImpl;
 import uk.co.buygroceries.impl.ShoppingCartImpl;
 import uk.co.buygroceries.interfaces.Cart;
 import uk.co.buygroceries.interfaces.GenerateCartBill;
@@ -27,7 +28,7 @@ public class ShoppingCartImplTest {
   @Before
   public void setUp() {
     shoppingCart = new ShoppingCartImpl();
-    generateBill = new GenerateCartBillImpl();
+    generateBill = new GenerateCartBillImpl(new HappySalesDiscountCalculatorImpl());
   }
 
   public void testShoppingCartIsEmpty() {
