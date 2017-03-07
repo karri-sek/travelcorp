@@ -2,6 +2,7 @@ package uk.co.buygroceries;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -173,6 +174,22 @@ public class ShoppingCartImplTest {
         totalAmount, 0.55);
   }
 
+
+  @Test
+  public void testWhen100Milk100ButterThenTotalShouldBe155Pounds() {
+    shoppingCart.addItem(new Bread(ItemEnum.Bread.toString(), 100, breadCost));
+    shoppingCart.addItem(new Butter(ItemEnum.Butter.toString(), 100, butterCost));
+    double totalAmount = generateBill.generateBill(shoppingCart);
+    assertEquals(
+        "test When 100 Bread and 100 Butter then the total amount Should be 155 Pounds 0 Pence.",
+        155.00D, totalAmount, 0.00);
+  }
+
+  @After
+  public void tearDown() {
+    shoppingCart = null;
+    generateBill = null;
+  }
 
 
 }
