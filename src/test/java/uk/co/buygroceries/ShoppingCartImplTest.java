@@ -9,6 +9,7 @@ import uk.co.buygroceries.base.ItemEnum;
 import uk.co.buygroceries.impl.ShoppingCartImpl;
 import uk.co.buygroceries.interfaces.Cart;
 import uk.co.buygroceries.model.Bread;
+import uk.co.buygroceries.model.Butter;
 import uk.co.buygroceries.model.Milk;
 
 public class ShoppingCartImplTest {
@@ -36,15 +37,24 @@ public class ShoppingCartImplTest {
         "test When 1 items added, then the cart should contain only those 1 items in total.",
         shoppingCart.listItems().size(), 1);
   }
-  
+
   @Test
   public void testOnlyTwoItemsInCart() {
-      shoppingCart.addItem(new Milk(ItemEnum.Milk.toString(), 1, milkCost));
-      shoppingCart
-              .addItem(new Bread(ItemEnum.Bread.toString(), 1, breadCost));
-      assertEquals(
-              "test When 2 items added, then the cart should contain only those 2 items in total.",
-              shoppingCart.listItems().size(), 2);
+    shoppingCart.addItem(new Milk(ItemEnum.Milk.toString(), 1, milkCost));
+    shoppingCart.addItem(new Bread(ItemEnum.Bread.toString(), 1, breadCost));
+    assertEquals(
+        "test When 2 items added, then the cart should contain only those 2 items in total.",
+        shoppingCart.listItems().size(), 2);
+  }
+
+  @Test
+  public void testOnlyThreeItemsInCart() {
+    shoppingCart.addItem(new Milk(ItemEnum.Milk.toString(), 1, milkCost));
+    shoppingCart.addItem(new Bread(ItemEnum.Bread.toString(), 1, breadCost));
+    shoppingCart.addItem(new Butter(ItemEnum.Butter.toString(), 1, butterCost));
+    assertEquals(
+        "test When 3 items added, then the cart should contain only those 3 items in total.",
+        shoppingCart.listItems().size(), 3);
   }
 
 
