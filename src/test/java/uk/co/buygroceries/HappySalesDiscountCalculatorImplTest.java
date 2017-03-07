@@ -12,6 +12,7 @@ import uk.co.buygroceries.interfaces.Cart;
 import uk.co.buygroceries.interfaces.DiscountCalculator;
 import uk.co.buygroceries.model.Bread;
 import uk.co.buygroceries.model.Butter;
+import uk.co.buygroceries.model.Milk;
 
 public class HappySalesDiscountCalculatorImplTest {
 
@@ -34,6 +35,14 @@ public class HappySalesDiscountCalculatorImplTest {
     shoppingCart.addItem(new Bread(ItemEnum.Bread.toString(), 2, breadCost));
     Double discount = discountCalculator.calculateDiscount(shoppingCart);
     assertEquals("test When 2 Butter, 2 Bread then the discount should be 0.5 pence.", 0.5D,
+        discount, 0.01);
+  }
+
+  @Test
+  public void testWhen4MilkTheDiscountShouldBe1Pound15Pence() {
+    shoppingCart.addItem(new Milk(ItemEnum.Milk.toString(), 4, milkCost));
+    Double discount = discountCalculator.calculateDiscount(shoppingCart);
+    assertEquals("test When 4 Milk, then the discount should be 1 pound 15 pence.", 1.15D,
         discount, 0.01);
   }
 
