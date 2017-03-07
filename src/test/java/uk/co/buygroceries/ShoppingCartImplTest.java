@@ -88,6 +88,21 @@ public class ShoppingCartImplTest {
         breadItemsCount);
   }
 
+  @Test
+  public void testCartShouldContainsOnly2ButterItems() {
+    int butterItemsCount = 0;
+    shoppingCart.addItem(new Item(ItemEnum.Butter.toString(), 2, butterCost));
+    for (Item item : shoppingCart.listItems()) {
+      if ("Butter".equalsIgnoreCase(item.getName())) {
+        butterItemsCount = item.getQuantity();
+        break;
+      }
+    }
+    assertEquals(
+        "test When 2 Butter items added, then the cart should contain only those 2 Butter items.",
+        2, butterItemsCount);
+  }
+
 
 
 }
