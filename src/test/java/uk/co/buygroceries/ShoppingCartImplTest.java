@@ -8,6 +8,7 @@ import org.junit.Test;
 import uk.co.buygroceries.base.ItemEnum;
 import uk.co.buygroceries.impl.ShoppingCartImpl;
 import uk.co.buygroceries.interfaces.Cart;
+import uk.co.buygroceries.interfaces.GenerateCartBill;
 import uk.co.buygroceries.model.Bread;
 import uk.co.buygroceries.model.Butter;
 import uk.co.buygroceries.model.Item;
@@ -16,6 +17,7 @@ import uk.co.buygroceries.model.Milk;
 public class ShoppingCartImplTest {
 
   Cart shoppingCart;
+  GenerateCartBill generateBill;
 
   static Double milkCost = 1.15D;
   static Double breadCost = 1D;
@@ -101,6 +103,16 @@ public class ShoppingCartImplTest {
     assertEquals(
         "test When 2 Butter items added, then the cart should contain only those 2 Butter items.",
         2, butterItemsCount);
+  }
+
+  @Test
+  public void testWhen1Bread1ButterAnd1MilkThenTotalShouldBe2Pounds95Pence() {
+    shoppingCart.addItem(new Milk(ItemEnum.Milk.toString(), 1, milkCost));
+    shoppingCart.addItem(new Bread(ItemEnum.Bread.toString(), 1, breadCost));
+    shoppingCart.addItem(new Butter(ItemEnum.Butter.toString(), 1, butterCost));
+    double totalAmount = generateBill.generateBill(shoppingCart);
+    assertEquals("test When 1 Butter, 1 Bread then the total amount Should be 2 Pounds 95 Pence.",
+        2.95D, totalAmount, 0.01);
   }
 
 
