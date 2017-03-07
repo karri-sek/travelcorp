@@ -3,9 +3,12 @@ package uk.co.buygroceries;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
+import org.junit.Test;
 
+import uk.co.buygroceries.base.ItemEnum;
 import uk.co.buygroceries.impl.ShoppingCartImpl;
 import uk.co.buygroceries.interfaces.Cart;
+import uk.co.buygroceries.model.Milk;
 
 public class ShoppingCartImplTest {
 
@@ -25,6 +28,14 @@ public class ShoppingCartImplTest {
         .listItems().isEmpty(), true);
   }
 
-  
+  @Test
+  public void testOnlyOneItemInCart() {
+    shoppingCart.addItem(new Milk(ItemEnum.Milk.toString(), 1, milkCost));
+    assertEquals(
+        "test When 1 items added, then the cart should contain only those 1 items in total.",
+        shoppingCart.listItems().size(), 1);
+  }
+
+
 
 }
