@@ -52,7 +52,7 @@ public class HappySalesDiscountCalculatorImplTest {
     shoppingCart.addItem(new Butter(ItemEnum.Butter.toString(), 2, butterCost));
     shoppingCart.addItem(new Bread(ItemEnum.Bread.toString(), 1, breadCost));
     Double discount = discountCalculator.calculateDiscount(shoppingCart);
-    assertEquals("test When 4 Milk, then the discount should be 1 pound 15 pence.", 2.8D,
+    assertEquals("test When 2 Butter , 1 Bread and 8 Milk, then the discount should be 2 pound 8 pence.", 2.8D,
         discount, 0.01);
   }
   
@@ -62,7 +62,16 @@ public class HappySalesDiscountCalculatorImplTest {
     shoppingCart.addItem(new Butter(ItemEnum.Butter.toString(), 1, butterCost));
     shoppingCart.addItem(new Bread(ItemEnum.Bread.toString(), 1, breadCost));
     Double discount = discountCalculator.calculateDiscount(shoppingCart);
-    assertEquals("test When 4 Milk, then the discount should be 1 pound 15 pence.", 0D,
+    assertEquals("test When 1 Butter 1 Bread, then the discount should be 0 pounds.", 0D,
+        discount, 0.01);
+  }
+  
+  @Test
+  public void testWhen100MilkAnd100ButterTheDiscountShouldBe37Pounds() {
+    shoppingCart.addItem(new Milk(ItemEnum.Milk.toString(), 100, milkCost));
+    shoppingCart.addItem(new Butter(ItemEnum.Butter.toString(), 100, butterCost));
+    Double discount = discountCalculator.calculateDiscount(shoppingCart);
+    assertEquals("test When 4 Milk, then the discount should be 1 pound 15 pence.", 37.94D,
         discount, 0.01);
   }
 
