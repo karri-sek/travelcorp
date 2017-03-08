@@ -71,7 +71,7 @@ public class HappySalesDiscountCalculatorImplTest {
     shoppingCart.addItem(new Milk(ItemEnum.Milk.toString(), 100, milkCost));
     shoppingCart.addItem(new Butter(ItemEnum.Butter.toString(), 100, butterCost));
     Double discount = discountCalculator.calculateDiscount(shoppingCart);
-    assertEquals("test When 4 Milk, then the discount should be 1 pound 15 pence.", 37.94D,
+    assertEquals("test When 100 Milk, 100 Butter then the discount should be 37 pound 94s pence.", 37.94D,
         discount, 0.01);
   }
 
