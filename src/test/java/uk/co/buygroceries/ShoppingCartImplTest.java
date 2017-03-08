@@ -67,7 +67,7 @@ public class ShoppingCartImplTest {
   @Test
   public void testCartShouldContainsOnlyThreeMilkItems() {
     int milkItemsCount = 0;
-    shoppingCart.addItem(new Item(ItemEnum.Milk.toString(), 3, milkCost));
+    shoppingCart.addItem(new Milk(ItemEnum.Milk.toString(), 3, milkCost));
     for (Item item : shoppingCart.listItems()) {
       if ("Milk".equalsIgnoreCase(item.getName())) {
         milkItemsCount = item.getQuantity();
@@ -82,7 +82,7 @@ public class ShoppingCartImplTest {
   @Test
   public void testCartShouldContainsOnly4BreadItems() {
     int breadItemsCount = 0;
-    shoppingCart.addItem(new Item(ItemEnum.Bread.toString(), 4, breadCost));
+    shoppingCart.addItem(new Bread(ItemEnum.Bread.toString(), 4, breadCost));
     for (Item item : shoppingCart.listItems()) {
       if ("Bread".equalsIgnoreCase(item.getName())) {
         breadItemsCount = item.getQuantity();
@@ -97,7 +97,7 @@ public class ShoppingCartImplTest {
   @Test
   public void testCartShouldContainsOnly2ButterItems() {
     int butterItemsCount = 0;
-    shoppingCart.addItem(new Item(ItemEnum.Butter.toString(), 2, butterCost));
+    shoppingCart.addItem(new Butter(ItemEnum.Butter.toString(), 2, butterCost));
     for (Item item : shoppingCart.listItems()) {
       if ("Butter".equalsIgnoreCase(item.getName())) {
         butterItemsCount = item.getQuantity();

@@ -1,6 +1,6 @@
 package uk.co.buygroceries.model;
 
-public class Item {
+public abstract class Item {
 
   private String name;
   private int quantity;
@@ -37,9 +37,6 @@ public class Item {
     this.price = price;
   }
 
-
-  public Double getItemDiscount() {
-    return 0D;
-  }
+  public abstract Double getItemDiscount();
 
 }
