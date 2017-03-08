@@ -2,13 +2,13 @@
 ### Home test
 
 ## Hi, 
- Thanks for giving this opportunity to take the test. I tried my best to follow the **SOLID** and ttd Principles while developing this 
-coding task. Please look into this repository (travelcorp) and branch **SEKHAR_KARRI**.
- The code itself is self explanatory and written the test cases for more scenarios.
+ Thanks for giving this opportunity to take the test. I tried my best to follow the **SOLID** and **TDD** Principles while developing this 
+coding task. Please look into this repository (**travelcorp**) and branch **SEKHAR_KARRI**.
+ The code itself is self explanatory and written the test cases for moft of the scenarios.
 # Assumptions & steps to test:
- + Java 8 as source compiler added this pom.xml.
- + Please have maven installed in your system before checking the solution by running maven command.
- + Please run the command 'mvn clean install' on the project root directory, all tests should pass.
+ + **Java 8** as source compiler added this `pom.xml`.
+ + Please have **maven** installed in your system before checking the solution by running maven command.
+ + Please run the command `mvn clean install` on the project root directory, all tests should pass.
 
 # files description:
  * Test file `ShoppingCartImplTest.java` describes the test for adding items to the cart and calculating the 
